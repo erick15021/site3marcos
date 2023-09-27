@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3marcos Engenharia e Projetos</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos Globais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: -10px;
+            padding: 40px;
+        }
+
+        /* Estilos do Cabeçalho */
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        ul.menu {
+            list-style: none;
+            display: flex;
+        }
+
+        ul.menu li {
+            margin-left: 20px;
+        }
+
+        ul.menu li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        ul.menu li a:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Adicione um estilo separado para o botão ativo (página atual) */
+        ul.menu li.active a {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para o botão "Home" */
+        ul.menu li:first-child a {
+            background-color: #e64a19;
+            color: #fff;
+        }
+
+        /* Estilos para os botões "Sobre", "Serviços", "Portfolio" e "Contato" */
+        ul.menu li:nth-child(2) a,
+        ul.menu li:nth-child(3) a,
+        ul.menu li:nth-child(4) a,
+        ul.menu li:nth-child(5) a {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Adicione margem à direita para os botões para criar espaço entre eles */
+        ul.menu li:nth-child(2) a,
+        ul.menu li:nth-child(3) a,
+        ul.menu li:nth-child(4) a {
+            margin-right: 10px;
+        }
+
+        /* Estilize o botão "Contato" de forma diferente */
+        ul.menu li:nth-child(5) a {
+            background-color: #c5370e;
+            color: #fff;
+        }
+
+        /* Estilos da Seção Herói */
+        .hero {
+            background-image: url('https://github.com/erick15021/3marcos/blob/main/3marcos.jpg?raw=true');
+            background-position: center center;
+            text-align: center;
+            padding: 240px 0;
+            color: #fff;
+            background-attachment: inherit;
+        }
+
+        .hero .scroll-down-arrow {
+            font-size: 24px;
+            animation: bounce 10s infinite;
+            cursor: pointer; /* Adicionado cursor de mão para indicar interatividade */
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer; /* Adicionado cursor de mão para indicar interatividade */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #e64a19;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            cursor: pointer; /* Adicionado cursor de mão para indicar interatividade */
+        }
+
+        .btn-secondary:hover {
+            background-color: #c5370e;
+        }
+
+        .btn-tertiary {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            cursor: pointer; /* Adicionado cursor de mão para indicar interatividade */
+        }
+
+        .btn-tertiary:hover {
+            background-color: #111;
+        }
+
+        .btn-quaternary {
+            background-color: #6c757d;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            cursor: pointer; /* Adicionado cursor de mão para indicar interatividade */
+        }
+
+        .btn-quaternary:hover {
+            background-color: #4e5960;
+        }
+
+        /* Estilos de Outras Seções (Sobre, Informações da Empresa, Contato, etc.) */
+        .section {
+            padding: 80px 0;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Estilos do Rodapé */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Estilize os ícones das redes sociais no rodapé */
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        /* Estilize as imagens */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animação de Salto */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Novos estilos personalizados */
+        .highlight-box {
+            background-color: #ffea00;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Estilize a lista de informações */
+        .company-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .company-info ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Estilize os botões de contato */
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .contact-buttons a {
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-buttons a:hover {
+            background-color: #007bff;
+        }
+
+        /* Estilize o botão de rolagem */
+        .scroll-down-arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="/">3marcos Engenharia E Projetos</a>
+                </div>
+                <ul class="menu">
+                    <li class="active"><a href="/" class="btn-primary">Home</a></li>
+                    <li><a href="/sobre" class="btn-secondary">Sobre</a></li>
+                    <li><a href="/servicos" class="btn-tertiary">Serviços</a></li>
+                    <li><a href="/portfolio" class="btn-quaternary">Portfolio</a></li>
+                    <li><a href="/contato" class="btn-primary">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Bem-vindo à 3marcos Engenharia E Projetos Ltda</h1>
+            <p>Transformando ideias em realidade.</p>
+            <a href="#" class="btn-primary">Saiba Mais</a>
+        </div>
+        <div class="scroll-down-arrow">&#8595;</div>
+    </section>
+
+    <section class="section about">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma equipe de engenheiros e profissionais dedicados a criar soluções personalizadas para o sucesso dos nossos clientes. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </section>
+
+    <section class="section company-info">
+        <div class="container">
+            <h2>Dados da Empresa</h2>
+            <div class="highlight-box">
+                <p>Situação: ATIVA</p>
+            </div>
+            <ul>
+                <li><strong>Número do CNPJ:</strong> 42.912.484/0001-95</li>
+                <li><strong>Data de Abertura:</strong> 29/07/2021</li>
+                <li><strong>Capital Social:</strong> R$ 110.000,00</li>
+                <li><strong>Tipo:</strong> MATRIZ</li>
+                <li><strong>Natureza Jurídica:</strong> Sociedade Empresária Limitada</li>
+                <li><strong>Porte da Empresa:</strong> ME</li>
+                <li><strong>Qnt. de Funcionários:</strong> Indeterminada</li>
+                <li><strong>Faturamento Presumido:</strong> Indeterminado</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section contact">
+        <div class="container">
+            <h2>Formas de Contato</h2>
+            <ul>
+                <li><strong>Telefone:</strong> (34) 9864-1978</li>
+                <li><strong>E-mail:</strong> <a href="mailto:contabilidade@gamaempresarial.com.br">contabilidade@gamaempresarial.com.br</a></li>
+            </ul>
+            <div class="contact-buttons">
+                <a href="tel:(34) 9864-1978" class="btn-primary">Ligar Agora</a>
+                <a href="mailto:contabilidade@gamaempresarial.com.br" class="btn-secondary">Enviar E-mail</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section address">
+        <div class="container">
+            <h2>Endereço da Empresa</h2>
+            <ul>
+                <li><strong>Estado / UF:</strong> Minas Gerais / MG</li>
+                <li><strong>Município:</strong> Uberlândia</li>
+                <li><strong>Bairro:</strong> Pacaembu Iii (loteamento)</li>
+                <li><strong>Logradouro:</strong> Rua Do Morango</li>
+                <li><strong>Número:</strong> 336</li>
+                <li><strong>CEP:</strong> 38.401-536</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section activity">
+        <div class="container">
+            <h2>Atividade Econômica</h2>
+            <p>Código: 7112-0/00 - Serviços de engenharia</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <a href="/">3marcos Engenharia E Projetos Ltda</a>
+            </div>
+            <div class="social-media">
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para rolar suavemente para baixo quando a seta for clicada
+        const scrollArrow = document.querySelector('.scroll-down-arrow');
+        scrollArrow.addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
